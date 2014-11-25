@@ -3,7 +3,7 @@
 @section('header')
 	<a href="{{url('/')}}">Back to dashboard</a>
 	<h2>
-		{{{$user->display-name}}}
+		{{{$user->blog-title}}}
 	</h2>
 	<a href="{{url('users/'.$user->id.'/edit')}}">
 		<span class="glyphicon glyphicon-edit"></span> Edit
