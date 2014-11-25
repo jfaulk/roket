@@ -14,5 +14,5 @@
 @stop
 
 @section('content')
-	{{{$user->content}}}
+	<!-- get the user's posts and display them -->
 @stop
