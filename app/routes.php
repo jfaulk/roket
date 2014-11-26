@@ -15,3 +15,27 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::get('users', function()
+{
+    $users = User::all();
+    return View::make('users.index')
+        ->with('users', $users);
+});
+
+Route::get('user/{id}', function()
+{
+    $id = User::
+    return View::make('blog.index')
+        ->with
+});
+
+Route::get('user/{id}/create', function()
+{
+
+});
+
+Route::get('about', function()
+{
+   return View::make('about');
+});
