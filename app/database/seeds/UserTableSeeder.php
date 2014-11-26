@@ -12,13 +12,13 @@ class UserTableSeeder extends Seeder {
 
         $user_role = DB::table('roles')
             ->select('id')
-            ->where('name', 'Sentinel')
+            ->where('name', 'User')
             ->first()
             ->id;
 
-        $mod_role  = DB::table('roles')
+        $sentinel_role  = DB::table('roles')
             ->select('id')
-            ->where('name', 'User')
+            ->where('name', 'Sentinel')
             ->first()
             ->id;
 
@@ -26,10 +26,48 @@ class UserTableSeeder extends Seeder {
 
         DB::table('users')->insert(array(
             'name' => 'James Faulk',
+            'display_name' => 'James',
             'email' => 'james.faulk@georgebrown.ca',
             'password' => Hash::make('test'),
+            'gender' => 'Male',
             'date_of_birth' => $now,
             'role_id' => $admin_role,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ));
+
+        DB::table('users')->insert(array(
+            'name' => 'William Coddington',
+            'display_name' => 'William',
+            'email' => 'william.coddington@georgebrown.ca',
+            'password' => Hash::make('test'),
+            'gender' => 'Male',
+            'date_of_birth' => $now,
+            'role_id' => $admin_role,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ));
+
+        DB::table('users')->insert(array(
+            'name' => 'Sentinel Test',
+            'display_name' => 'Sentinel',
+            'email' => 'sentinel@fakemail.com',
+            'password' => Hash::make('test'),
+            'gender' => 'Male',
+            'date_of_birth' => $now,
+            'role_id' => $sentinel_role,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ));
+
+        DB::table('users')->insert(array(
+            'name' => 'User Test',
+            'display_name' => 'User',
+            'email' => 'user@fakemail.com',
+            'password' => Hash::make('test'),
+            'gender' => 'Female',
+            'date_of_birth' => $now,
+            'role_id' => $user_role,
             'created_at' => $now,
             'updated_at' => $now,
         ));
