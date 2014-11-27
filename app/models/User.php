@@ -16,16 +16,16 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $table = 'users';
     protected $fillable = array('name', 'email', 'date_of_birth', 'display_name', 'gender');
-    protected $guarded = array('id', 'password');
+    protected $guarded = array('id', 'password', 'role_id');
 
     public function posts()
     {
-        return $this->hasMany('posts');
+        return $this->hasMany('Post');
     }
 
-    public function roles()
+    public function role()
     {
-        return $this->belongsToMany('Role');
+        return $this->hasOne('Role');
     }
 
 	/**
