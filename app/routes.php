@@ -19,20 +19,25 @@ Route::get('/', function()
 Route::get('users', function()
 {
     $users = User::all();
-    return View::make('users.index')
+    return View::make('users')
         ->with('users', $users);
 });
 
-Route::get('user/{id}', function()
+Route::get('user/{id}', function($id)
 {
-    $id = User::
-    return View::make('blog.index')
-        ->with
+    $user = User::find($id);
+    return View::make('viewprofile')
+        ->with('user', $user);
 });
 
 Route::get('user/{id}/create', function()
 {
+    return "TODO: Implement create new post";
+});
 
+Route::get('login', function()
+{
+    return "TODO: Implement user login";
 });
 
 Route::get('about', function()
