@@ -4,7 +4,7 @@ GET         /                       Index
 
 GET         /users                  List of all users
 GET         /users/:id              Individual user profile
-GET         /users/create           Form to create a new account
+GET         /newaccount             Form to create a new account
 POST        /users                  Handle creation of new user profile
 GET         /users/:id/edit         Form to edit existing user profile
 PUT         /users/:id              Handle updates to user profile
