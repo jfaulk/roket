@@ -12,6 +12,7 @@
 */
 
 Route::model('user', 'User');
+Route::model('post','Post');
 
 Route::get('/', function()
 {
@@ -52,7 +53,14 @@ Route::get('about', function()
 {
    return View::make('about');
 });
+
 Route::get('dashboard', function()
 {
     return "TODO: Implement user dashboard";
+});
+
+Route::get('post/{post}', function(Post $post)
+{
+    return View::make('post')
+        ->with('post',$post);
 });
