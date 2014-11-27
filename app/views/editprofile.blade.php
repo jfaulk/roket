@@ -1,10 +1,10 @@
 @extends('master')
 
 @section('header')
-	<a href="{{('users/'.$user->id.'')}}">&larr; Cancel </a>
+	<a href="{{('user/' . $user->id )}}">&larr; Cancel</a>
 	
 	<h2>
-		Edit {{$user->title}}'s profile
+		Edit {{$user->name}}'s profile
 	</h2>
 @stop
 
