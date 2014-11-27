@@ -3,8 +3,8 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>Cats DB</title>
-		<link rel="stylesheet" href="{{asset('bootstrap-3.0.0.min.css')}}">
+		<title>Roket</title>
+		<link rel="stylesheet" href="{{url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css')}}">
 	</head>
 	
 	<body>
