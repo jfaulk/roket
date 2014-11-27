@@ -11,6 +11,8 @@
 |
 */
 
+Route::model('user', 'User');
+
 Route::get('/', function()
 {
 	return View::make('index');
@@ -23,16 +25,22 @@ Route::get('users', function()
         ->with('users', $users);
 });
 
-Route::get('user/{id}', function($id)
+Route::get('user/{user}', function(User $user)
 {
-    $user = User::find($id);
     return View::make('viewprofile')
         ->with('user', $user);
 });
 
-Route::get('user/{id}/create', function()
+Route::get('user/{user}/edit', function(User $user)
 {
-    return "TODO: Implement create new post";
+    return View::make('editprofile')
+        ->with('user', $user)
+        ->with('method', 'put');
+});
+
+Route::get('newaccount', function()
+{
+    return "TODO: Implement create new profile";
 });
 
 Route::get('login', function()
