@@ -23,7 +23,7 @@
 
 
         @foreach(Post::where('user_id', '=', $user->id)->get() as $barf)
-            {{{ $barf->post_title . " --- " . $barf->post_contents . "<br>"}}}
+            {{ $barf->post_title . " --- " . $barf->post_contents . "<br>"}}
         @endforeach
     </div>
 @stop
