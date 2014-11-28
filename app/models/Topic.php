@@ -3,7 +3,7 @@
 class Topic extends Eloquent {
 
 	protected $table = 'topics';
-	protected $fillable = array('content');
+	protected $fillable = array('tag');
 
 	public function posts()
 	{
