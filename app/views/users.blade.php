@@ -1,14 +1,13 @@
 @extends('master')
 
 @section('header')
-
-{{link_to('/', 'Home')}}
+    <h1>Users</h1>
+@stop
 
 @section('content')
-
-@foreach($users as $user)
-<div>
-<a href="{{url('user/'.$user->id)}}"><strong> {{{$user->name}}} </strong> - {{{$user->display_name}}} | {{{$user->gender}}}</a>
-</div>
-@endforeach
+    @foreach($users as $user)
+    <div>
+    <a href="{{url('user/'.$user->id)}}"><strong> {{{$user->name}}} </strong> - {{{$user->display_name}}} | {{{$user->gender}}}</a>
+    </div>
+    @endforeach
 @stop
