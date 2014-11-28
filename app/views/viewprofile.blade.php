@@ -21,8 +21,8 @@
 
     <div id='blog'>
 
-        {{$user->posts()}}
-        @foreach($user->posts() as $barf)
+
+        @foreach(Post::with('user_id')->get() as $barf)
             {{{ $barf->post_title . " --- " . $barf->post_contents . "<br>"}}}
         @endforeach
     </div>
