@@ -63,7 +63,7 @@ class UserController extends BaseController {
         // create rules for login
         $rules = array(
             'email'    => 'required|email', // make sure the email is an actual email
-            'password' => 'required|alphaNum|min:6|max:64' // password can only be alphanumeric and has to be greater than 3 characters
+            'password' => 'required'
         );
 
         // run rules
@@ -105,13 +105,13 @@ class UserController extends BaseController {
         return Redirect::to('/'); // go home
     }
 
-    public function showEditProfile($user)
+    public function showEditProfile()
     {
         // make sure profile to edit belongs to currently logged in user
-        if($user == Auth::user())
+        if(Auth::user())
         {
             return View::make('editprofile')
-                ->with('user', $user);
+                ->with('user', Auth::user());
         }
         else
         {

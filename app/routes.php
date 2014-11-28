@@ -39,11 +39,11 @@ Route::get('users', function()
 
 # User Profile
 
-Route::get('user/{user}', function(User $user)
+Route::get('profile', array('before' => 'auth', function()
 {
-    return View::make('viewprofile')
-        ->with('user', $user);
-});
+    return View::make('profile')
+        ->with('user', Auth::user());
+}));
 
 # User Post
 
@@ -55,8 +55,8 @@ Route::get('post/{post}', function(Post $post)
 
 # Edit User Profile
 
-Route::get('user/{user}/edit', array('uses' => 'UserController@showEditProfile'));
-Route::post('user/{user}/edit', array('before' => 'csrf', 'uses' => 'UserController@doEditProfile'));
+Route::get('profile/edit', array('before' => 'auth', 'uses' => 'UserController@showEditProfile'));
+Route::post('profile/edit', array('before' => 'csrf', 'uses' => 'UserController@doEditProfile'));
 
 # Site Registration
 
