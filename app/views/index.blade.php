@@ -7,7 +7,7 @@
 
 @section('content')
     @if(Auth::check()) {{-- user is logged in --}}
-    <h6>Welcome, {{{Auth::user()->username}}}</h6>
+    <h6>Welcome, {{{Auth::user()->display_name}}}</h6>
     @else
     {{ HTML::image('img/rockt.jpg', 'a picture', array('class' => 'thumb')) }}
     @endif
