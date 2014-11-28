@@ -13,6 +13,7 @@
 
 Route::model('user', 'User');
 Route::model('post','Post');
+Route::model('topic', 'Topic');
 
 # Index Page
 
@@ -51,6 +52,14 @@ Route::get('post/{post}', function(Post $post)
 {
     return View::make('post')
         ->with('post', $post);
+});
+
+# Topic Link
+
+Route::get('{topic}', function(Topic $topic)
+{
+	return View::make('topic')
+		->with('topic', $topic);
 });
 
 # Edit User Profile
