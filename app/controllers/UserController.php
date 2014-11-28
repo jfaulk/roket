@@ -1,6 +1,13 @@
 <?php
 
 class UserController extends BaseController {
+
+    public function showSignup()
+    {
+        // show signup form
+        return View::make('signup');
+    }
+
     public function showLogin()
     {
         // show login form
