@@ -21,7 +21,8 @@
 
     <div id='blog'>
 
-        @foreach(Post::where('user_id', '==', $user->id) as $barf)
+
+        @foreach($user->posts() as $barf)
             {{{ $barf->post_title . " --- " . $barf->post_contents . "<br>"}}}
         @endforeach
     </div>
