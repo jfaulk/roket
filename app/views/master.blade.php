@@ -11,6 +11,9 @@
 		<div class="container">
 			<div class="page-header">
 				@yield('header')
+				
+				{{link_to('/users', 'Users')}}
+				{{link_to('/about', 'About Us')}}
 			</div>
 			
 			@if(Session::has('message'))

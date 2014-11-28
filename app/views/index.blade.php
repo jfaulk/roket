@@ -1,10 +1,6 @@
 @extends('master')
 
 @section('header')
-
-    {{link_to('/users', 'Users')}}
-    {{link_to('/about', 'About Us')}}
-
 	{{-- @if user is logged in, show their username and post button --}}
 	{{-- @else show signup splash screen --}}
 @stop
