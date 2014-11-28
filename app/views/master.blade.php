@@ -15,7 +15,11 @@
 				{{link_to('/', 'Home')}}
 				{{link_to('/users', 'Users')}}
 				{{link_to('/about', 'About Us')}}
-				{{link_to('/login', 'Login')}}
+				@if(Auth::check())
+				    {{link_to('/logout', 'Logout')}}
+				@else
+				    {{link_to('/login', 'Login')}}
+				@endif
 			</div>
 			
 			@if(Session::has('message'))
