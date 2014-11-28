@@ -44,7 +44,7 @@ class UserController extends BaseController {
             if ($newUser)
             {
                 Auth::login($newUser);
-                return Redirect::to('/user/' . Auth::user()->id);
+                return Redirect::to('profile');
             }
 
             return Redirect::to('signup')
@@ -132,6 +132,6 @@ class UserController extends BaseController {
         // push the updated user object to the database.
         $user->push();
 
-        return Redirect::to('/user/' . $user->id);
+        return Redirect::to('/profile');
     }
 }
