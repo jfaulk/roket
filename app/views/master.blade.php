@@ -15,6 +15,7 @@
 				{{link_to('/', 'Home')}}
 				{{link_to('/users', 'Users')}}
 				{{link_to('/about', 'About Us')}}
+				{{link_to('/login', 'Login')}}
 			</div>
 			
 			@if(Session::has('message'))
