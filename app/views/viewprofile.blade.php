@@ -29,7 +29,7 @@
 			@foreach($barf->topics as $topic)
 				{{ $topic->pivot->tag . ", "}}
 			@endforeach
-			{{ <br> . $barf->post_contents . "<br>"}}
+			{{ "<br>" . $barf->post_contents . "<br>"}}
         @endforeach
     </div>
 @stop
