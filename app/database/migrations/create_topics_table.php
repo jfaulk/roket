@@ -11,6 +11,11 @@ class CreateTopicsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('tag', 160);
-		}
+		});
+	}
+	
+	public function down()
+	{
+		Schema::drop('topics');
 	}
 }
