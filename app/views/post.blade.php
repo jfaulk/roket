@@ -2,9 +2,9 @@
 
 @section('header')
 	<a href="{{url('/')}}">Back to dashboard</a>
-	<h2>
+	<h1>
 		{{{$post->name}}}
-	</h2>
+	</h1>
 	<a href="{{url('posts/'.$post->id.'/edit')}}">
 		<span class="glyphicon glyphicon-edit"></span> Edit
 	</a>
@@ -15,5 +15,6 @@
 @stop
 
 @section('content')
-	{{{$post->content}}}
+    {{{"Author: " . User::find($post->user_id)->get()}}}
+	{{$post->post_content}}
 @stop
