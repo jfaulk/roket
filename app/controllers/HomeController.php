@@ -51,7 +51,7 @@ class HomeController extends BaseController {
             if (Auth::attempt($userdata))
             {
                 // login SUCCESSFUL go to dashboard
-                return Redirect::to('dashboard');
+                return Redirect::to('/');
             }
 
             else
