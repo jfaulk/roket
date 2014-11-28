@@ -25,7 +25,11 @@
     <br><br>
     <div id='blog'>
         @foreach(Post::where('user_id', '=', $user->id)->get() as $barf)
-            {{ $barf->post_title . " --- " . $barf->post_contents . "<br>"}}
+			{{ $barf->post_title . " --- " }}
+			@foreach($barf->topics as $topic)
+				{{ $topic->pivot->tag . ", "}}
+			@endforeach
+			{{ "<br>" . $barf->post_contents . "<br>"}}
         @endforeach
     </div>
 @stop
