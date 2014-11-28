@@ -9,7 +9,7 @@
     @if(Auth::check()) {{-- user is logged in --}}
     <h6>Welcome, {{{Auth::user()->display_name}}}</h6>
     @else
-    {{ HTML::image('img/rockt.jpg', 'a picture', array('class' => 'thumb')) }}
+    {{ HTML::image('img/rockt.jpg', 'a picture', array('class' => 'thumbnail')) }}
     @endif
 
 	{{-- @if user is logged in, show subscribed blogs --}}
