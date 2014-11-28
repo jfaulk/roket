@@ -16,14 +16,15 @@
 			<div class="page-header">
 				@yield('header')
 				
-				{{link_to('/', 'Home')}}
-				{{link_to('/users', 'Users')}}
-				{{link_to('/about', 'About Us')}}
+				{{ link_to('/', 'Home') }}
+				{{ link_to('/users', 'Users') }}
+				{{ link_to('/about', 'About Us') }}
 				@if(Auth::check())
-				    {{link_to('/logout', 'Logout')}}
-				    {{link_to('/user/' . Auth::user()->id . '/edit', 'Edit your profile') }}
+				    {{ link_to('/logout', 'Logout') }}
+				    {{ link_to('/user/' . Auth::user()->id . '/edit', 'Edit your profile') }}
 				@else
-				    {{link_to('/login', 'Login')}}
+				    {{ link_to('/login', 'Login') }}
+				    {{ link_to('signup') }}
 				@endif
 			</div>
 			

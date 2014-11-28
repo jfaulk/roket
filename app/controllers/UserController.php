@@ -8,6 +8,50 @@ class UserController extends BaseController {
         return View::make('signup');
     }
 
+    public function doSignup()
+    {
+        $rules = array(
+            'name'          => 'required|alpha',
+            'display_name'  => 'required',
+            'email'         => 'required|email',
+            'date_of_birth' => 'required',
+            'password'      => 'required|alphaNum|min:6|max:64'
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails())
+        {
+            return Redirect::to('signup')
+                ->withErrors($validator)
+                ->withInput(Input::except('password'));
+        }
+
+        else
+        {
+            $userData = array(
+                'name'          => Input::get('name'),
+                'display_name'  => Input::get('display_name'),
+                'email'         => Input::get('email'),
+                'date_of_birth' => Input::get('date_of_birth'),
+                'gender'        => Input::get('gender'),
+                'password'      => Input::get('password'),
+                'role_id'        => 1
+            );
+
+            $newUser = User::create($userData);
+
+            if ($newUser)
+            {
+                Auth::login($newUser);
+                return Redirect::to('/user/' . Auth::user()->id);
+            }
+
+            return Redirect::to('signup')
+                ->withInput(Input::except('password'));
+        }
+    }
+
     public function showLogin()
     {
         // show login form
@@ -19,7 +63,7 @@ class UserController extends BaseController {
         // create rules for login
         $rules = array(
             'email'    => 'required|email', // make sure the email is an actual email
-            'password' => 'required|alphaNum|min:3|max:64' // password can only be alphanumeric and has to be greater than 3 characters
+            'password' => 'required|alphaNum|min:6|max:64' // password can only be alphanumeric and has to be greater than 3 characters
         );
 
         // run rules
@@ -35,13 +79,13 @@ class UserController extends BaseController {
 
         else
         {
-            $userdata = array(
+            $userData = array(
                 'email' 	=> Input::get('email'),
                 'password' 	=> Input::get('password')
             );
 
             // attempt the login
-            if (Auth::attempt($userdata))
+            if (Auth::attempt($userData))
             {
                 // login SUCCESSFUL go to dashboard
                 return Redirect::to('/');
