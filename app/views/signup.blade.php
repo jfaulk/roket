@@ -40,12 +40,12 @@
 		</p>
 
 		<p>
-			{{ Form::label('date_of_birth', 'Date of Birth', array('id' => '.datepicker')) }}
+			{{ Form::label('date_of_birth', 'Date of Birth', array('id' => '#datepicker')) }}
 			{{ Form::text('date_of_birth') }}
 		</p>
 
 		<p>
-			{{ Form::label('gender', 'gender') }}
+			{{ Form::label('gender', 'Gender') }}
 			{{ Form::text('gender') }}
 		</p>
 
