@@ -1,6 +1,6 @@
 <?php
 
-class PostsTopicsTableSeeder extends Seeder {
+class PostTopicTableSeeder extends Seeder {
 	public function run()
 	{
 		DB::table('post_topic')->insert(array(
