@@ -1,33 +1,28 @@
 @extends('master')
 
 @section('header')
-	<a href="{{('user/' . $user->id )}}">&larr; Cancel</a>
-	
-	<h2>
-		Edit {{$user->name}}'s profile
-	</h2>
+
 @stop
 
 @section('content')
-	{{Form::model($user, array('method' => $method, 'url'=>'posts/'.$post->id))}}
-		<div class="form-group">
-			{{Form::label('Blog Title')}}
-			{{Form::text('blog-title')}}
-		</div>
-		
-		<div class="form-group">
-			{{Form::label('Email')}}
-			{{Form::text('email')}}
-		</div>
-		
-		<div class="form-group">
-			{{Form::label('Date of Birth')}}
-			{{Form::text('birthday')}}
-		</div>
-		
-		<div class="form-group">
-			{{Form::label('Gender')}}
-			{{Form::text('gender')}}
-		</div>
-	{{Form::close()}}
+	{{ Form::open(array('url' => '/user/' . $user->id . '/edit')) }}
+		<h1>Login</h1>
+
+		<p>
+			{{ Form::label('display_name', 'Display Name') }}
+			{{ Form::text('display_name', Input::old('display_name')) }}
+		</p>
+
+		<p>
+			{{ Form::label('email', 'Email') }}
+			{{ Form::text('email', Input::old('email')) }}
+		</p>
+
+		<p>
+			{{ Form::label('gender', 'Gender') }}
+			{{ Form::text('gender', Input::old('gender')) }}
+		</p>
+
+		<p>{{ Form::submit('Submit!') }}</p>
+	{{ Form::close() }}
 @stop

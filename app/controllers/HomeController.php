@@ -67,4 +67,34 @@ class HomeController extends BaseController {
         Auth::logout(); // log out
         return Redirect::to('/'); // go home
     }
+
+    public function showEditProfile($user)
+    {
+        // make sure profile to edit belongs to currently logged in user
+        if($user == Auth::user())
+        {
+            return View::make('editprofile')
+                ->with('user', $user);
+        }
+        else
+        {
+            return Redirect::to('login');
+        }
+    }
+
+    public function doEditProfile()
+    {
+        // load the currently logged in user
+        $user = Auth::user()->all();
+
+        // update the profile fields. should probably do some sanity testing here.
+        $user->display_name = Input::get('display_name');
+        $user->email = Input::get('email');
+        $user->gender = Input::get('gender');
+
+        // push the updated user object to the database.
+        $user->push();
+
+        return Redirect::to('/user/' . $user->id);
+    }
 }

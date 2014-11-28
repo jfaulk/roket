@@ -32,12 +32,9 @@ Route::get('user/{user}', function(User $user)
         ->with('user', $user);
 });
 
-Route::get('user/{user}/edit', function(User $user)
-{
-    return View::make('editprofile')
-        ->with('user', $user)
-        ->with('method', 'put');
-});
+Route::get('user/{user}/edit', array('uses' => 'HomeController@showEditProfile'));
+
+Route::post('user/{user}/edit', array('uses' => 'HomeController@doEditProfile'));
 
 Route::get('newaccount', function()
 {
@@ -58,5 +55,5 @@ Route::get('about', function()
 Route::get('post/{post}', function(Post $post)
 {
     return View::make('post')
-        ->with('post',$post);
+        ->with('post', $post);
 });

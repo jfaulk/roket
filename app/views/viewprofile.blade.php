@@ -2,8 +2,6 @@
 
 @section('header')
 
-    {{link_to('/users', 'Back to the user list')}}
-
 @stop
 
 @section('content')
@@ -16,12 +14,16 @@
         <strong>Date of Birth: </strong> {{{$user->date_of_birth}}} <br>
         <strong>Role ID: </strong> {{{$user->role_id}}} <br>
         <strong>Created At: </strong> {{{$user->created_at}}} <br>
-        <strong>Updated At: </strong> {{{$user->updated_at}}}
+        <strong>Updated At: </strong> {{{$user->updated_at}}} <br>
+        <br>
+        @if($user == Auth::user())
+        <h4><a href="{{ URL::to('user/' . $user->id . '/edit') }}">Edit Profile</a></h4>
+        @endif
     </div>
 
+
+    <br><br>
     <div id='blog'>
-
-
         @foreach(Post::where('user_id', '=', $user->id)->get() as $barf)
             {{ $barf->post_title . " --- " . $barf->post_contents . "<br>"}}
         @endforeach
