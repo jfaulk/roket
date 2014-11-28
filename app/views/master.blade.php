@@ -5,7 +5,10 @@
 		<meta charset="UTF-8">
 		<title>Roket</title>
 		<link rel="stylesheet" href="{{url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css')}}">
-		<link rel="shortcut icon" type="image/x-icon" href="/public/favicon.ico">
+		<link rel="stylesheet" href="{{url('//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css')}}">
+		<link rel="script" href="{{url('//code.jquery.com/jquery-1.11.0.min.js')}}">
+		<link rel="script" href="{{url('//code.jquery.com/ui/1.11.2/jquery-ui.js')}}">
+		<link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
 	</head>
 	
 	<body>
@@ -17,8 +20,8 @@
 				{{link_to('/users', 'Users')}}
 				{{link_to('/about', 'About Us')}}
 				@if(Auth::check())
-				    {{--link_to('/user/' . $user . '/edit', 'Edit your profile')--}}
 				    {{link_to('/logout', 'Logout')}}
+				    {{link_to('/user/' . Auth::user()->id . '/edit', 'Edit your profile') }}
 				@else
 				    {{link_to('/login', 'Login')}}
 				@endif
