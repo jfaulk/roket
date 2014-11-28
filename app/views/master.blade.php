@@ -24,7 +24,7 @@
 				    {{ link_to('/user/' . Auth::user()->id . '/edit', 'Edit your profile') }}
 				@else
 				    {{ link_to('/login', 'Login') }}
-				    {{ link_to('signup') }}
+				    {{ link_to('signup', 'Signup!') }}
 				@endif
 			</div>
 			
