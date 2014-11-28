@@ -17,7 +17,7 @@
         <strong>Updated At: </strong> {{{$user->updated_at}}} <br>
         <br>
         @if($user == Auth::user())
-        <h4><a href="{{ URL::to('user/edit') }}">Edit Profile</a></h4>
+        <h4><a href="{{ URL::to('profile/edit') }}">Edit Profile</a></h4>
         @endif
     </div>
 

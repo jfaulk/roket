@@ -21,7 +21,7 @@
 				{{ link_to('/about', 'About Us |') }}
 				@if(Auth::check())
 				    {{ link_to('/logout', 'Logout |') }}
-				    {{ link_to('/profile/edit', 'Edit your profile |') }}
+				    {{ link_to('/user/' . Auth::user()->id, 'Profile |') }}
 				@else
 				    {{ link_to('/login', 'Login |') }}
 				    {{ link_to('signup', 'Signup!') }}

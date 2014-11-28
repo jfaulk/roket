@@ -40,11 +40,11 @@ Route::get('users', function()
 
 # User Profile
 
-Route::get('profile', array('before' => 'auth', function()
+Route::get('user/{user}', function(User $user)
 {
-    return View::make('profile')
-        ->with('user', Auth::user());
-}));
+    return View::make('viewprofile')
+        ->with('user', $user);
+});
 
 # User Post
 
@@ -64,17 +64,17 @@ Route::get('{topic}', function(Topic $topic)
 
 # Edit User Profile
 
-Route::get('profile/edit', array('before' => 'auth', 'uses' => 'UserController@showEditProfile'));
-Route::post('profile/edit', array('before' => 'csrf', 'uses' => 'UserController@doEditProfile'));
+Route::get('user/{user}/edit', array('uses' => 'UserController@showEditProfile'));
+Route::post('user/{user}/edit', array('before' => 'csrf', 'uses' => 'UserController@doEditProfile'));
 
 # Site Registration
 
-Route::get('signup', array('uses' => 'UserController@showSignup'));
+Route::get('signup', array('before' => 'guest', 'uses' => 'UserController@showSignup'));
 Route::post('signup', array('before' => 'csrf', 'uses' => 'UserController@doSignup'));
 
 # Login
 
-Route::get('login', array('uses' => 'UserController@showLogin'));
+Route::get('login', array('before' => 'guest', 'uses' => 'UserController@showLogin'));
 Route::post('login', array('before' => 'csrf', 'uses' => 'UserController@doLogin'));
 
 # Logout
