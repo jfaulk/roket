@@ -56,17 +56,17 @@ Route::get('post/{post}', function(Post $post)
 # Edit User Profile
 
 Route::get('user/{user}/edit', array('uses' => 'UserController@showEditProfile'));
-Route::post('user/{user}/edit', array('uses' => 'UserController@doEditProfile'));
+Route::post('user/{user}/edit', array('before' => 'csrf', 'uses' => 'UserController@doEditProfile'));
 
 # Site Registration
 
 Route::get('signup', array('uses' => 'UserController@showSignup'));
-Route::post('signup', array('uses' => 'UserController@doSignup'));
+Route::post('signup', array('before' => 'csrf', 'uses' => 'UserController@doSignup'));
 
 # Login
 
 Route::get('login', array('uses' => 'UserController@showLogin'));
-Route::post('login', array('uses' => 'UserController@doLogin'));
+Route::post('login', array('before' => 'csrf', 'uses' => 'UserController@doLogin'));
 
 # Logout
 
