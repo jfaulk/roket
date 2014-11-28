@@ -16,6 +16,7 @@
 				{{link_to('/users', 'Users')}}
 				{{link_to('/about', 'About Us')}}
 				@if(Auth::check())
+				    {{link_to('/user/{user}/edit', 'Edit your profile')}}
 				    {{link_to('/logout', 'Logout')}}
 				@else
 				    {{link_to('/login', 'Login')}}
