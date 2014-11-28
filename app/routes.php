@@ -54,11 +54,6 @@ Route::get('about', function()
    return View::make('about');
 });
 
-Route::get('dashboard', function()
-{
-    return "TODO: Implement user dashboard";
-});
-
 Route::get('post/{post}', function(Post $post)
 {
     return View::make('post')
