@@ -6,7 +6,7 @@
 
 @section('content')
 	{{ Form::open(array('url' => '/user/' . $user->id . '/edit')) }}
-		<h1>Login</h1>
+		<h1>Edit Profile</h1>
 
 		<p>
 			{{ Form::label('display_name', 'Display Name') }}
