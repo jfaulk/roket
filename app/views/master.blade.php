@@ -5,6 +5,7 @@
 		<meta charset="UTF-8">
 		<title>Roket</title>
 		<link rel="stylesheet" href="{{url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css')}}">
+		<link rel="shortcut icon" type="image/x-icon" href="/public/favicon.ico">
 	</head>
 	
 	<body>
