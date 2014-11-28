@@ -6,6 +6,7 @@
 @stop
 
 @section('content')
+    {{HTML::image('img/rockt.jpg')}}
 	{{-- @if user is logged in, show subscribed blogs --}}
 	{{-- @else hide section --}}
 @stop
