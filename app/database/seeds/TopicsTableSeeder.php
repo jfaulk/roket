@@ -3,7 +3,9 @@
 class TopicsTableSeeder extends Seeder {
 	
 	public function run()
-		DB::table('topics')->insert(array('tag' => 'music'));
-		DB::table('topics')->insert(array('tag' => 'movies'));
-		DB::table('topics')->insert(array('tag' => 'television'));
+		DB::table('topics')->insert(array
+		(array('tag' => 'music')),
+		(array('tag' => 'movies')),
+		(array('tag' => 'television'),
+		));
 }
