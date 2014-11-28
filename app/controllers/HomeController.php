@@ -61,4 +61,10 @@ class HomeController extends BaseController {
             }
         }
     }
+
+    public function doLogout()
+    {
+        Auth::logout(); // log out
+        return Redirect::to('/'); // go home
+    }
 }
