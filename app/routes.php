@@ -44,10 +44,9 @@ Route::get('newaccount', function()
     return "TODO: Implement create new profile";
 });
 
-Route::get('login', function()
-{
-    return "TODO: Implement user login";
-});
+Route::get('login', array('uses' => 'HomeController@showLogin'));
+
+Route::post('login', array('uses' => 'HomeController@doLogin'));
 
 Route::get('about', function()
 {
