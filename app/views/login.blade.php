@@ -1,26 +1,34 @@
 @extends('master')
 
+@section('header')
+
+<link rel="stylesheet" href="{{asset('css/login.css')}}">
+
+@stop
+
 @section('content')
-	{{ Form::open(array('url' => 'login')) }}
-		<h1>Login</h1>
+<div class="container">
+	{{ Form::open(array('url' => 'login', 'class' => 'form-login')) }}
+		<h2 class="form-signup-heading">Login</h2>
 
-		<!-- show login errors here if exists -->
+		@if($errors->has('email'))
+			<p class="error"> {{ $errors->first('email') }} </p>
+		@endif
 		<p>
-			{{ $errors->first('email') }}
-			{{ $errors->first('password') }}
+			{{ Form::label('email', 'Email Address', array('class' => 'sr-only')) }}
+			{{ Form::text('email', Input::old('email'), array('placeholder' => 'Email', 'class' => 'form-control')) }}
 		</p>
 
+		@if($errors->has('password'))
+			<p class="error"> {{ $errors->first('password') }} </p>
+		@endif
 		<p>
-			{{ Form::label('email', 'Email Address') }}
-			{{ Form::text('email', Input::old('email')) }}
+			{{ Form::label('password', 'Password', array('class' => 'sr-only')) }}
+			{{ Form::password('password', array('placeholder' => 'Password', 'class' => 'form-control')) }}
 		</p>
 
-		<p>
-			{{ Form::label('password', 'Password') }}
-			{{ Form::password('password') }}
-		</p>
-
-		<p>{{ Form::submit('Submit!') }}</p>
+		{{ Form::button('Login!', array('type' => 'submit', 'class' => 'btn btn-lg btn-primary btn-block')) }}
 	{{ Form::close() }}
+</div>
 
 @stop
