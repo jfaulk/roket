@@ -7,7 +7,7 @@
 @section('content')
     {{ "Author: " }}
 	@foreach(User::where('id', '=', $post->user_id)->get() as $auth)@endforeach
-	{{ link_to($auth->name, $auth->name) }}
+	{{ link_to('user/'. $auth->id, $auth->name) }}
 	<h1>
 		{{$post->post_title}}
 	</h1>

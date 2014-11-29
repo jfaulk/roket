@@ -56,11 +56,7 @@ Route::get('post/{post}', function(Post $post)
 
 # Topic Link
 
-<<<<<<< HEAD
-Route::get('topic/{topic}', function(Topic $topic)
-=======
 Route::get('/topic/{topic}', function(Topic $topic)
->>>>>>> origin/master
 {
 	return View::make('viewtopic')
 		->with('topic', $topic);
