@@ -10,12 +10,12 @@
         <h6>Welcome, {{{Auth::user()->display_name}}}</h6>
         <hr>
         <div id="dashposts">
-            {{-- @foreach(post from a subscribed blog ) --}}
+             {{-- @foreach(post from a subscribed blog )--}}
                 <div id="post">
                     <h2>{{-- post title --}}</h2>
                     {{-- post contents --}}
                 </div>
-            @endforeach
+           {{-- @endforeach --}}
         </div>
     @else
         {{ HTML::image('img/rockt.jpg', 'a picture', array('class' => 'thumbnail')) }}
