@@ -37,7 +37,6 @@ class UserController extends BaseController {
                 'date_of_birth'         => Input::get('date_of_birth'),
                 'gender'                => Input::get('gender'),
                 'password'              => Input::get('password'),
-                'role_id'               => 1
             );
 
             $newUser = User::create($userData);
