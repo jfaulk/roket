@@ -3,6 +3,10 @@ body {
     padding-bottom: 40px;
 }
 
+.error {
+    color: red;
+}
+
 .form-signup {
     max-width: 330px;
     padding: 15px;
@@ -15,6 +19,11 @@ body {
 .form-signup .checkbox {
     font-weight: normal;
 }
+
+.form-signup .form-control .error {
+    color:red;
+}
+
 .form-signup .form-control {
     position: relative;
     height: auto;
@@ -26,14 +35,4 @@ body {
 }
 .form-signup .form-control:focus {
     z-index: 2;
-}
-.form-signup input[type="email"] {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-}
-.form-signup input[type="password"] {
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
 }
