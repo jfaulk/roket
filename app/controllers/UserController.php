@@ -11,11 +11,12 @@ class UserController extends BaseController {
     public function doSignup()
     {
         $rules = array(
-            'name'          => 'required|alpha',
-            'display_name'  => 'required',
-            'email'         => 'required|email',
-            'date_of_birth' => 'required',
-            'password'      => 'required|alphaNum|min:6|max:64'
+            'name'                  => 'required|alpha',
+            'display_name'          => 'required',
+            'email'                 => 'required|email',
+            'date_of_birth'         => 'required',
+            'password'              => 'required|alphaNum|min:6|max:64|confirmed',
+            'password_confirmation' => 'required'
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -30,13 +31,13 @@ class UserController extends BaseController {
         else
         {
             $userData = array(
-                'name'          => Input::get('name'),
-                'display_name'  => Input::get('display_name'),
-                'email'         => Input::get('email'),
-                'date_of_birth' => Input::get('date_of_birth'),
-                'gender'        => Input::get('gender'),
-                'password'      => Input::get('password'),
-                'role_id'        => 1
+                'name'                  => Input::get('name'),
+                'display_name'          => Input::get('display_name'),
+                'email'                 => Input::get('email'),
+                'date_of_birth'         => Input::get('date_of_birth'),
+                'gender'                => Input::get('gender'),
+                'password'              => Input::get('password'),
+                'role_id'               => 1
             );
 
             $newUser = User::create($userData);
