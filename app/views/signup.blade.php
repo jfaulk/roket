@@ -4,6 +4,14 @@
 
 <link rel="stylesheet" href="{{asset('css/signup.css')}}">
 
+<script type="text/javascript">
+    $(function() {
+        $( "#datepicker" ).datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+</script>
 @stop
 
 @section('content')
@@ -40,7 +48,7 @@
 			@endif
 			<p>
 			{{ Form::label('date_of_birth', 'Date of Birth', array('class' => 'sr-only')) }}
-			{{ Form::input('date', 'date_of_birth', Input::old('date_of_birth'), array('type' => 'text', 'class' => 'form-control','placeholder' => 'Date of Birth')) }}
+			{{ Form::text('date_of_birth', Input::old('date_of_birth'), array('type' => 'text', 'class' => 'form-control datepicker','placeholder' => 'Date of Birth', 'id' => 'datepicker')) }}
 			</p>
 
 			@if($errors->has('gender'))
