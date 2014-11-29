@@ -2,27 +2,31 @@
 
 @section('header')
 
+<link rel="stylesheet" href="{{asset('css/forms.css')}}">
+
 @stop
 
 @section('content')
-	{{ Form::open(array('url' => '/user/' . $user->id . '/edit')) }}
-		<h1>Edit Profile</h1>
+<div class="container">
+	{{ Form::model($user, array('url' => '/user/' . $user->id . '/edit', 'class' => 'form')) }}
+		<h2 class="form-heading">Edit Profile</h2>
 
 		<p>
-			{{ Form::label('display_name', 'Display Name') }}
-			{{ Form::text('display_name', Input::old('display_name')) }}
+			{{ Form::label('display_name', 'Display Name', array('class' => 'sr-only')) }}
+			{{ Form::text('display_name', Input::old('display_name'), array('placeholder' => 'Display Name', 'class' => 'form-control')) }}
 		</p>
 
 		<p>
-			{{ Form::label('email', 'Email') }}
-			{{ Form::text('email', Input::old('email')) }}
+			{{ Form::label('email', 'Email', array('class' => 'sr-only')) }}
+			{{ Form::text('email', Input::old('email'), array('placeholder' => 'Email', 'class' => 'form-control')) }}
 		</p>
 
 		<p>
-			{{ Form::label('gender', 'Gender') }}
-			{{ Form::text('gender', Input::old('gender')) }}
+			{{ Form::label('gender', 'Gender', array('class' => 'sr-only')) }}
+			{{ Form::text('gender', Input::old('gender'), array('placeholder' => 'Gender', 'class' => 'form-control')) }}
 		</p>
 
-		<p>{{ Form::submit('Submit!') }}</p>
+		{{ Form::button('Submit!', array('type' => 'submit', 'class' => 'btn btn-lg btn-primary btn-block')) }}
 	{{ Form::close() }}
+</div>
 @stop

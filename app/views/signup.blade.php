@@ -2,7 +2,7 @@
 
 @section('header')
 
-<link rel="stylesheet" href="{{asset('css/signup.css')}}">
+<link rel="stylesheet" href="{{asset('css/forms.css')}}">
 
 <script type="text/javascript">
     $(function() {
@@ -16,8 +16,8 @@
 
 @section('content')
 <div class="container">
-	{{ Form::open(array('url' => 'signup', 'class' => 'form-signup')) }}
-		<h2 class="form-signup-heading">Signup!</h2>
+	{{ Form::open(array('url' => 'signup', 'class' => 'form')) }}
+		<h2 class="form-heading">Signup!</h2>
 
 			@if($errors->has('name'))
 				<p class="error"> {{ $errors->first('name') }} </p>

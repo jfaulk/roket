@@ -19,10 +19,10 @@
 	</h1>
 	{{$post->post_contents}}
 	<hr>
-	<a href="{{url('posts/'.$post->id.'/edit')}}">
+	<a href="{{url('post/'.$post->id.'/edit')}}">
 		<span class="glyphicon glyphicon-edit"></span> Edit
 	</a>
-	<a href="{{url('posts/'.$post->id.'/delete')}}">
+	<a href="{{url('post/'.$post->id.'/delete')}}">
 		<span class="glyphicon glyphicon-trash"></span> Delete
 	</a>
 	Last edited: {{$post->updated_at}}

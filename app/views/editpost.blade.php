@@ -1,12 +1,12 @@
 @extends('master')
 
 @section('header')
-	<a href="{{('posts/'.$post->id.'')}}">&larr; Cancel </a>
+	<a href="{{ ('post/'. $post->id) }}">&larr; Cancel </a>
 	
 	<h2>
-		@if($method == 'post')
+		@if ($method == 'post')
 			New post
-		@elseif($method == 'delete')
+		@elseif ($method == 'delete')
 			Delete "{{$post->title}}"?
 		@else
 			Edit "{{$post->title}}"
@@ -38,9 +38,9 @@
 				{{Form::text(content-tags)}}
 			</div>
 		
-			{{Form::submit("Save", array("class"=>"btn btn-default"))}}
+			{{Form::submit('Save', array('class' => 'btn btn-default'))}}
 		@else
-			{{Form::submit("Delete", array("class"=>"btn btn-default"))}}
+			{{Form::submit('Delete', array('class' => 'btn btn-default'))}}
 		@endif
 		
 	{{Form::close()}}

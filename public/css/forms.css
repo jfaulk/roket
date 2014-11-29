@@ -7,20 +7,20 @@ body {
     color: red;
 }
 
-.form-signup {
+.form {
     max-width: 330px;
     padding: 15px;
     margin: 0 auto;
 }
-.form-signup .form-signup-heading,
-.form-signup .checkbox {
+.form .form-heading,
+.form .checkbox {
     margin-bottom: 10px;
 }
-.form-signup .checkbox {
+.form .checkbox {
     font-weight: normal;
 }
 
-.form-signup .form-control {
+.form .form-control {
     position: relative;
     height: auto;
     -webkit-box-sizing: border-box;
@@ -29,6 +29,6 @@ body {
     padding: 10px;
     font-size: 16px;
 }
-.form-signup .form-control:focus {
+.form .form-control:focus {
     z-index: 2;
 }

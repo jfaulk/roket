@@ -62,6 +62,11 @@ Route::get('topic/{topic}', function(Topic $topic)
 		->with('topic', $topic);
 });
 
+# Edit Post
+
+Route::get('post/{post}/edit', array('uses' => 'PostController@showEditPost'));
+Route::post('post/{post}/edit', array('before' => 'csrf', 'uses' => 'PostController@doEditPost'));
+
 # Edit User Profile
 
 Route::get('user/{user}/edit', array('uses' => 'UserController@showEditProfile'));

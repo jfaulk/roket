@@ -2,14 +2,14 @@
 
 @section('header')
 
-<link rel="stylesheet" href="{{asset('css/login.css')}}">
+<link rel="stylesheet" href="{{asset('css/forms.css')}}">
 
 @stop
 
 @section('content')
 <div class="container">
-	{{ Form::open(array('url' => 'login', 'class' => 'form-login')) }}
-		<h2 class="form-signup-heading">Login</h2>
+	{{ Form::open(array('url' => 'login', 'class' => 'form')) }}
+		<h2 class="form-heading">Login</h2>
 
 		@if($errors->has('email'))
 			<p class="error"> {{ $errors->first('email') }} </p>
