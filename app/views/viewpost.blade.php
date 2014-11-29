@@ -1,10 +1,18 @@
 @extends('master')
 
 @section('header')
-	<a href="{{url('/')}}">Back to dashboard</a>
+	
+@stop
+
+@section('content')
+    {{ "Author: " }}
+	@foreach(User::where('id', '=', $post->user_id)->get() as $auth)@endforeach
+	{{ link_to($auth->name, $auth->name) }}
 	<h1>
-		{{{$post->name}}}
+		{{$post->post_title}}
 	</h1>
+	{{$post->post_contents}}
+	<hr>
 	<a href="{{url('posts/'.$post->id.'/edit')}}">
 		<span class="glyphicon glyphicon-edit"></span> Edit
 	</a>
@@ -12,9 +20,6 @@
 		<span class="glyphicon glyphicon-trash"></span> Delete
 	</a>
 	Last edited: {{$post->updated_at}}
-@stop
-
-@section('content')
-    {{{"Author: " . User::find($post->user_id)->get()}}}
-	{{$post->post_content}}
+	<br>
+	<a href="{{url('/')}}">Back to dashboard</a>
 @stop

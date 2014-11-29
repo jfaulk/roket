@@ -50,15 +50,15 @@ Route::get('user/{user}', function(User $user)
 
 Route::get('post/{post}', function(Post $post)
 {
-    return View::make('post')
+    return View::make('viewpost')
         ->with('post', $post);
 });
 
 # Topic Link
 
-Route::get('{topic}', function(Topic $topic)
+Route::get('topic/{topic}', function(Topic $topic)
 {
-	return View::make('topic')
+	return View::make('viewtopic')
 		->with('topic', $topic);
 });
 

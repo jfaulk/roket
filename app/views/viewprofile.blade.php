@@ -25,12 +25,15 @@
     <br><br>
     <div id='blog'>
         @foreach(Post::where('user_id', '=', $user->id)->get() as $barf)
+			{{ " | " }}
 			@foreach($barf->topics as $topic)
 				{{ link_to($topic->tag, $topic->tag)}}
-				{{ ", " }}
+				{{ " | " }}
 			@endforeach
-			{{ "<br>" . $barf->post_title . " --- 
-			<br>" . $barf->post_contents . "<br>"}}
+			<h1>
+			{{ link_to('post/' . $barf->id, $barf->post_title) }}
+			</h1><br><hr>
+			{{ $barf->post_contents . "<br>"}}
         @endforeach
     </div>
 @stop
