@@ -56,7 +56,7 @@ Route::get('post/{post}', function(Post $post)
 
 # Topic Link
 
-Route::get('/topic/{topic}', function(Topic $topic)
+Route::get('topic/{topic}', function(Topic $topic)
 {
 	return View::make('viewtopic')
 		->with('topic', $topic);

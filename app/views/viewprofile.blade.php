@@ -27,7 +27,7 @@
         @foreach(Post::where('user_id', '=', $user->id)->get() as $barf)
 			{{ " | " }}
 			@foreach($barf->topics as $topic)
-				{{ link_to($topic->tag, $topic->tag)}}
+				{{ link_to('topic/' . $topic->id, $topic->tag)}}
 				{{ " | " }}
 			@endforeach
 			<h1>
