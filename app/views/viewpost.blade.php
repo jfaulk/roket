@@ -8,6 +8,12 @@
     {{ "Author: " }}
 	@foreach(User::where('id', '=', $post->user_id)->get() as $auth)@endforeach
 	{{ link_to('user/'. $auth->id, $auth->name) }}
+	<br>
+	{{ " | " }}
+	@foreach($post->topics as $topic)
+		{{ link_to('topic/' . $topic->id, $topic->tag)}}
+		{{ " | " }}
+	@endforeach
 	<h1>
 		{{$post->post_title}}
 	</h1>
