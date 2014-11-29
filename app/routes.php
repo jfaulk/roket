@@ -56,7 +56,11 @@ Route::get('post/{post}', function(Post $post)
 
 # Topic Link
 
+<<<<<<< HEAD
 Route::get('topic/{topic}', function(Topic $topic)
+=======
+Route::get('/topic/{topic}', function(Topic $topic)
+>>>>>>> origin/master
 {
 	return View::make('viewtopic')
 		->with('topic', $topic);
@@ -79,7 +83,4 @@ Route::post('login', array('before' => 'csrf', 'uses' => 'UserController@doLogin
 
 # Logout
 
-Route::get('logout', array('uses' => 'UserController@doLogout'));
-
-
-
+Route::get('logout', array('before' => 'auth', 'uses' => 'UserController@doLogout'));
