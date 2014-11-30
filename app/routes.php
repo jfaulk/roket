@@ -62,6 +62,13 @@ Route::get('topic/{topic}', function(Topic $topic)
 		->with('topic', $topic);
 });
 
+# Create New Post
+Route::post('blog/{user}/create', function(User $user)
+    {
+        return View::make('newpost')
+            ->with('user', $user);
+    });
+
 # Edit Post
 
 Route::get('post/{post}/edit', array('uses' => 'PostController@showEditPost'));
