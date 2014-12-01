@@ -27,6 +27,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     {
         return $this->hasOne('Role');
     }
+	
+	public function follows()
+	{
+		return $this->hasMany('User', 'followee_id');
+	}
 
 	/**
 	 * The attributes excluded from the model's JSON form.
