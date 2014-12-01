@@ -17,7 +17,7 @@ class CreateContentPostTable extends Migration {
 		{
 			$table->integer('post_id');
 			$table->integer('content_id');
-		}
+		});
 	}
 
 	/**
