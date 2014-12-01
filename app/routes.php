@@ -14,6 +14,7 @@
 Route::model('user', 'User');
 Route::model('post','Post');
 Route::model('topic', 'Topic');
+Route::model('content', 'Content');
 
 # Index Page
 
@@ -60,6 +61,14 @@ Route::get('topic/{topic}', function(Topic $topic)
 {
 	return View::make('viewtopic')
 		->with('topic', $topic);
+});
+
+# Content Link
+
+Route::get('content/{content}', function(Content $content)
+{
+	return View::make('viewcontent')
+		->with('content', $content);
 });
 
 # Create New Post
