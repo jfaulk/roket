@@ -17,7 +17,7 @@ class CreateContentTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('tag', 160);
-		}
+		});
 	}
 
 	/**
