@@ -22,7 +22,7 @@
                 <td>{{ User::find($user->id)->role->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->gender }}</td>
-                @if (Auth::user()->id == $user->id)
+                @if (Auth::check() AND Auth::user()->id == $user->id)
                 <td>{{ link_to_route('users.edit', 'Edit', array($user->id), array('class' => 'btn btn-info')) }}</td>
                 <td>
                     {{ Form::open(array('method' => 'DELETE', 'route' => array('users.destroy', $user->id))) }}
