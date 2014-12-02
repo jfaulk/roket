@@ -12,21 +12,33 @@
         <div id="dashposts">
             <?php
                 $subscribed = DB::table('followee_user')
+                    ->select('followee_id')
                     ->where('user_id', '=', Auth::user()->id)
+                    ->get()
+                    ;
+                $poop = array();
+                foreach($subscribed as $bums)
+                {
+                    array_push($poop, $bums->followee_id);
+                }
+
+                $posts = DB::table('posts')
+                    ->orderBy('id','desc')
+                    ->whereIn('user_id', $poop)
                     ->get();
-                $postsOut = DB::table('posts')
-                    ->orderBy('id', 'desc')
-                    ->whereIn('user_id', $subscribed)
-                    ->take('10')
-                    ->get();
+                foreach($posts as $barf)
+                {
+                    //var_dump($barf);
+                    echo '<div class="post">';
+                        echo '<h2>' . $barf->post_title . '</h2>';
+                        echo '<div>' . $barf->post_contents . '</div>';
+                        echo '<h6>Author: ' . User::find($barf->user_id)->display_name
+                            . '</h6>';
+                    echo '</div>';
+                }
             ?>
 
-            @foreach ($postsOut as $barf)
-                <div id="post">
-                    <h2>{{{ $barf->post_title }}}</h2>
-                    {{{ $barf->post_contents }}}
-                </div>
-            @endforeach
+
         </div>
     @else
         {{ HTML::image('img/rockt.jpg', 'a picture', array('class' => 'thumbnail')) }}
