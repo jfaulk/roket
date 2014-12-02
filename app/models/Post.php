@@ -6,7 +6,12 @@ class Post extends Eloquent {
     protected $fillable = array('user_id', 'post_title', 'post_contents', 'created_at', 'updated_at');
     protected $guarded = array('id');
 
-    public function users()
+    public static $rules = array(
+        'title'         => 'required',
+        'content'      => 'required',
+    );
+
+    public function user()
     {
         return $this->belongsTo('User');
     }

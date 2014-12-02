@@ -8,6 +8,7 @@
 @section('content')
     @if(Auth::check()) {{-- user is logged in --}}
         <h6>Welcome, {{{Auth::user()->display_name}}}</h6>
+        <p> {{ link_to_route('posts.create', 'Create a new post?')}} </p>
         <hr>
         <div id="dashposts">
             <?php
@@ -30,8 +31,8 @@
                 {
                     //var_dump($barf);
                     echo '<div class="post">';
-                        echo '<h2>' . $barf->post_title . '</h2>';
-                        echo '<div>' . $barf->post_contents . '</div>';
+                        echo '<h2>' . $barf->title . '</h2>';
+                        echo '<div>' . $barf->content . '</div>';
                         echo '<h6>Author: ' . User::find($barf->user_id)->display_name
                             . '</h6>';
                     echo '</div>';

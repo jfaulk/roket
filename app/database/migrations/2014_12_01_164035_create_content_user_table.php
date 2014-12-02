@@ -15,8 +15,11 @@ class CreateContentUserTable extends Migration {
 		//
 		Schema::create('content_user', function(Blueprint $table)
 		{
-			$table->integer('content_id');
-			$table->integer('user_id');
+            $table->increments('id');
+			$table->unsignedInteger('content_id');
+			$table->unsignedInteger('user_id');
+            $table->foreign('content_id')->references('id')->on('content')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 		});
 	}
 

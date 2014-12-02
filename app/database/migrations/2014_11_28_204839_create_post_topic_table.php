@@ -15,8 +15,11 @@ class CreatePostTopicTable extends Migration {
 		//
 		Schema::create('post_topic', function(Blueprint $table)
 		{
-			$table->integer('post_id');
-			$table->integer('topic_id');
+            $table->increments('id');
+			$table->unsignedInteger('post_id');
+			$table->unsignedInteger('topic_id');
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
+            $table->foreign('topic_id')->references('id')->on('topics')->onDelete('cascade');
 		});
 	}
 

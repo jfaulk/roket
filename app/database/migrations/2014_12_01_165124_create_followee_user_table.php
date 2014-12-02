@@ -15,8 +15,10 @@ class CreateFolloweeUserTable extends Migration {
 		//
 		Schema::create('followee_user', function(Blueprint $table)
 		{
-			$table->integer('followee_id');
-			$table->integer('user_id');
+            $table->increments('id');
+			$table->unsignedInteger('followee_id');
+			$table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 		});
 	}
 

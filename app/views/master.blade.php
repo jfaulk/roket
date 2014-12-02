@@ -23,16 +23,16 @@
 				{{ link_to('about', 'About Us |') }}
 				@if(Auth::check())
 				    {{ link_to('logout', 'Logout |') }}
-				    {{ link_to('user/' . Auth::user()->id, 'Profile') }}
+				    {{ link_to('users/' . Auth::user()->id, 'Profile') }}
 				@else
 				    {{ link_to('login', 'Login |') }}
-				    {{ link_to('signup', 'Signup!') }}
+				    {{ link_to('users/create', 'Signup!') }}
 				@endif
 			</div>
 			
 			@if(Session::has('message'))
 			
-			<div class="alert alert-success">
+			<div class="alert alert-danger">
 				{{Session::get('message')}}
 			</div>
 			@endif

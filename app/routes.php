@@ -30,31 +30,6 @@ Route::get('about', function()
     return View::make('about');
 });
 
-# Users List
-
-Route::get('users', function()
-{
-    $users = User::all();
-    return View::make('users')
-        ->with('users', $users);
-});
-
-# User Profile
-
-Route::get('user/{user}', function(User $user)
-{
-    return View::make('viewprofile')
-        ->with('user', $user);
-});
-
-# User Post
-
-Route::get('post/{post}', function(Post $post)
-{
-    return View::make('viewpost')
-        ->with('post', $post);
-});
-
 # Topic Link
 
 Route::get('topic/{topic}', function(Topic $topic)
@@ -78,26 +53,15 @@ Route::post('blog/{user}/create', function(User $user)
             ->with('user', $user);
     });
 
-# Edit Post
-
-Route::get('post/{post}/edit', array('uses' => 'PostController@showEditPost'));
-Route::post('post/{post}/edit', array('before' => 'csrf', 'uses' => 'PostController@doEditPost'));
-
-# Edit User Profile
-
-Route::get('user/{user}/edit', array('uses' => 'UserController@showEditProfile'));
-Route::post('user/{user}/edit', array('before' => 'csrf', 'uses' => 'UserController@doEditProfile'));
-
-# Site Registration
-
-Route::get('signup', array('before' => 'guest', 'uses' => 'UserController@showSignup'));
-Route::post('signup', array('before' => 'csrf', 'uses' => 'UserController@doSignup'));
-
 # Login
 
-Route::get('login', array('before' => 'guest', 'uses' => 'UserController@showLogin'));
-Route::post('login', array('before' => 'csrf', 'uses' => 'UserController@doLogin'));
+Route::get('login', array('before' => 'guest', 'uses' => 'UsersController@showLogin'));
+Route::post('login', array('before' => 'csrf', 'uses' => 'UsersController@getLogin'));
 
 # Logout
 
-Route::get('logout', array('before' => 'auth', 'uses' => 'UserController@doLogout'));
+Route::get('logout', array('before' => 'auth', 'uses' => 'UsersController@getLogout'));
+
+
+Route::resource('users', 'UsersController');
+Route::resource('posts', 'PostsController');

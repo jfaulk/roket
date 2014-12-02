@@ -16,7 +16,21 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $table = 'users';
     protected $fillable = array('name', 'email', 'date_of_birth', 'display_name', 'gender');
-    protected $guarded = array('id', 'password', 'role_id');
+    protected $guarded = array('id', 'role_id', 'password');
+
+    public static function rules ($id = 0, $merge=[])
+    {
+        return array_merge(
+            [
+                'name'                  => 'required|alpha_spaces',
+                'display_name'          => 'required|alpha_spaces',
+                'email'                 => 'required|email|unique:users,email'. ($id ? ",$id" : ''),
+                'date_of_birth'         => 'required|date',
+                'password'              => 'required|alphaNum|min:6|max:64|confirmed',
+                'password_confirmation' => 'required',
+            ],
+            $merge);
+    }
 
     public function posts()
     {
@@ -25,7 +39,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
     public function role()
     {
-        return $this->hasOne('Role');
+        return $this->belongsTo('Role');
     }
 	
 	public function follows()

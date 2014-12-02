@@ -15,8 +15,11 @@ class CreateContentPostTable extends Migration {
 		//
 		Schema::create('content_post', function(Blueprint $table)
 		{
-			$table->integer('post_id');
-			$table->integer('content_id');
+            $table->increments('id');
+			$table->unsignedInteger('post_id');
+			$table->unsignedInteger('content_id');
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
+            $table->foreign('content_id')->references('id')->on('content')->onDelete('cascade');
 		});
 	}
 

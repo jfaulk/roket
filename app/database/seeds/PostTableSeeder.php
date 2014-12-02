@@ -8,32 +8,36 @@ class PostTableSeeder extends Seeder {
 
 		DB::table('posts')->insert(array(
 			'user_id' => 1,
-			'post_title' => 'Hello',
-			'post_contents' => "<h1>Hello</h1>",
+			'title' => 'Hello',
+            'slug' => 'hello',
+			'content' => "A post!",
 			'created_at' => $now,
 			'updated_at' => $now,
 			));
 
         DB::table('posts')->insert(array(
             'user_id' => 2,
-            'post_title' => 'Hello',
-            'post_contents' => "<h1>Hello</h1>",
+            'title' => 'Hello',
+            'slug' => 'hello',
+            'content' => "A post!",
             'created_at' => $now,
             'updated_at' => $now,
         ));
 
         DB::table('posts')->insert(array(
             'user_id' => 3,
-            'post_title' => 'Hello',
-            'post_contents' => "<h1>Hello</h1>",
+            'title' => 'Hello',
+            'slug' => 'hello',
+            'content' => "A post!",
             'created_at' => $now,
             'updated_at' => $now,
         ));
 
         DB::table('posts')->insert(array(
             'user_id' => 4,
-            'post_title' => 'Hello',
-            'post_contents' => "<h1>Hello</h1>",
+            'title' => 'Hello',
+            'slug' => 'hello',
+            'content' => "A post!",
             'created_at' => $now,
             'updated_at' => $now,
         ));
