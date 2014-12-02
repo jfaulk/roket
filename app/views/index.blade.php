@@ -14,8 +14,7 @@
                 $subscribed = DB::table('followee_user')
                     ->select('followee_id')
                     ->where('user_id', '=', Auth::user()->id)
-                    ->get()
-                    ;
+                    ->get();
                 $poop = array();
                 foreach($subscribed as $bums)
                 {
@@ -25,6 +24,7 @@
                 $posts = DB::table('posts')
                     ->orderBy('id','desc')
                     ->whereIn('user_id', $poop)
+                    ->take('10')
                     ->get();
                 foreach($posts as $barf)
                 {
