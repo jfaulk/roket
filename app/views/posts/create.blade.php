@@ -8,7 +8,6 @@
 
 @section('content')
 <div class="container">
-
     {{ Form::open(array('route' => 'posts.store', 'class' => 'form')) }}
         <h2 class="form-heading">Create Post</h2>
 

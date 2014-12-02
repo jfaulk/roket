@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="'container">
-
 <h1>Edit Post</h1>
     {{ Form::model($post, array('method' => 'PATCH', 'route' => array('posts.update', $post->id), 'class' => 'form')) }}
 

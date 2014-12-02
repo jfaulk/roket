@@ -80,7 +80,7 @@ class UsersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-        if($id == Auth::user()->id)
+        if(Auth::check() AND $id == Auth::id())
             {
                 $user = User::find($id);
                 if (is_null($user))

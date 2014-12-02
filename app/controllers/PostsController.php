@@ -93,7 +93,7 @@ class PostsController extends \BaseController {
 	{
         $postOwner = Post::find($id)->user_id;
 
-        if($postOwner == Auth::user()->id)
+        if(Auth::check() AND $postOwner == Auth::id())
         {
             $post = Post::find($id);
             if (is_null($post))
@@ -143,7 +143,7 @@ class PostsController extends \BaseController {
 	{
         $postOwner = Post::find($id)->user_id;
 
-        if ($postOwner == Auth::user()->id)
+        if (Auth::check() AND $postOwner == Auth::id())
         {
             Post::find($id)->delete();
             return Redirect::route('posts.index');
