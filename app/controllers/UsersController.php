@@ -31,7 +31,15 @@ class UsersController extends \BaseController {
 	 */
 	public function create()
 	{
-        return View::make('users.create');
+        if (Auth::check())
+        {
+            return Redirect::route('users.index')
+                ->with('message', 'Please logout to create another account.');
+        }
+        else
+        {
+            return View::make('users.create');
+        }
 	}
 
 

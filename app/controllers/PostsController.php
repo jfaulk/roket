@@ -34,7 +34,16 @@ class PostsController extends \BaseController {
 	 */
 	public function create()
 	{
-        return View::make('posts.create');
+        if (Auth::check())
+        {
+            return View::make('posts.create');
+        }
+        else
+        {
+            return Redirect::route('posts.index')
+                ->with('message', 'You must be logged in to post.');
+        }
+
 	}
 
 
