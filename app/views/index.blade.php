@@ -10,12 +10,23 @@
         <h6>Welcome, {{{Auth::user()->display_name}}}</h6>
         <hr>
         <div id="dashposts">
-             {{-- @foreach(post from a subscribed blog )--}}
+            <?php
+                $subscribed = DB::table('followee_user')
+                    ->where('user_id', '=', Auth::user()->id)
+                    ->get();
+                $postsOut = DB::table('posts')
+                    ->orderBy('id', 'desc')
+                    ->whereIn('user_id', $subscribed)
+                    ->take('10')
+                    ->get();
+            ?>
+
+            @foreach ($postsOut as $barf)
                 <div id="post">
-                    <h2>{{-- post title --}}</h2>
-                    {{-- post contents --}}
+                    <h2>{{{ $barf->post_title }}}</h2>
+                    {{{ $barf->post_contents }}}
                 </div>
-           {{-- @endforeach --}}
+            @endforeach
         </div>
     @else
         {{ HTML::image('img/rockt.jpg', 'a picture', array('class' => 'thumbnail')) }}
