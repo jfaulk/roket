@@ -20,7 +20,7 @@
                 <td><a href="{{ url('posts/' . $post->id) }}"> {{ $post->title }} </a></td>
                 <td>
                     @foreach (Post::find($post->id)->topics as $topic)
-                        <a href="{{ url('topics/' . $topic->id) }}"> {{ ' [' . $topic->topic . '] ' }} </a>
+                        <a href="{{ url('topics/' . $topic->id) }}"> {{ ' [' . $topic->name . '] ' }} </a>
                     @endforeach
                 </td>
                 <td>{{{ $post->created_at->toFormattedDateString() }}}</td>

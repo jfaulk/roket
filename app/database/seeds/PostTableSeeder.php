@@ -8,32 +8,32 @@ class PostTableSeeder extends Seeder {
 
 		DB::table('posts')->insert(array(
 			'user_id' => 1,
-			'title' => 'Hello',
-			'content' => "A post!",
+			'title' => 'Monday',
+			'content' => "It's a monday...",
 			'created_at' => $now,
 			'updated_at' => $now,
 			));
 
         DB::table('posts')->insert(array(
             'user_id' => 2,
-            'title' => 'Hello',
-            'content' => "A post!",
+            'title' => 'Tuesday',
+            'content' => "It's a tuesday...",
             'created_at' => $now,
             'updated_at' => $now,
         ));
 
         DB::table('posts')->insert(array(
             'user_id' => 3,
-            'title' => 'Hello',
-            'content' => "A post!",
+            'title' => 'Wednesday',
+            'content' => "It's a wednesday...",
             'created_at' => $now,
             'updated_at' => $now,
         ));
 
         DB::table('posts')->insert(array(
             'user_id' => 4,
-            'title' => 'Hello',
-            'content' => "A post!",
+            'title' => 'Thursday',
+            'content' => "It's a thursday...",
             'created_at' => $now,
             'updated_at' => $now,
         ));

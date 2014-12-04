@@ -18,7 +18,7 @@ class Post extends Eloquent {
 
     public function topics()
     {
-        return $this->belongsToMany('Topic', 'post_topic');
+        return $this->belongsToMany('Topic');
     }
 	
 	public function content()

@@ -1,5 +1,11 @@
 @extends('master')
 
+@section('header')
+
+<link rel="stylesheet" href="{{asset('css/forms.css')}}">
+
+@stop
+
 @section('content')
 <div class="'container">
 <h1>Edit Post</h1>
@@ -9,10 +15,16 @@
                 {{ Form::label('title', 'Title:', array('class' => 'sr-only')) }}
                 {{ Form::text('title', Input::old('title'), array('placeholder' => 'Title', 'class' => 'form-control')) }}
             </p>
+
             <p>
                 {{ Form::label('content', 'Content:', array('class' => 'sr-only')) }}
                 {{ Form::textarea('content', Input::old('content'), array('placeholder' => 'Content', 'class' => 'form-control')) }}
             </p>
+
+            <p>
+                {{ Form::select('topics[]', $topics, null, array('multiple' => 'multiple', 'class' => 'form-control')) }}
+            </p>
+
             <p>
                 {{ Form::submit('Update', array('class' => 'btn btn-lg btn-primary btn-block')) }}
                 {{ link_to_route('posts.show', 'Cancel', $post->id, array('class' => 'btn btn-lg btn-default btn-block')) }}

@@ -36,7 +36,9 @@ class PostsController extends \BaseController {
 	{
         if (Auth::check())
         {
-            return View::make('posts.create');
+            $topics = Topic::lists('name', 'id');
+
+            return View::make('posts.create', compact('topics'));
         }
         else
         {
@@ -56,6 +58,7 @@ class PostsController extends \BaseController {
 	{
         $user = Auth::user();
         $input = Input::all();
+        $topics = $input['topics'];
         $validation = Validator::make($input, Post::$rules);
         if ($validation->passes())
         {
@@ -63,8 +66,11 @@ class PostsController extends \BaseController {
             $this->post->content = Input::get('content');
             $this->post->user_id = $user->id;
 
+
+
             if($this->post->save())
             {
+                $this->post->topics()->sync($topics);
                 return Redirect::route('posts.index');
             }
 
@@ -100,6 +106,7 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
+        $topics = Topic::lists('name', 'id');
         $postOwner = Post::find($id)->user_id;
 
         if(Auth::check() AND $postOwner == Auth::id())
@@ -109,7 +116,7 @@ class PostsController extends \BaseController {
             {
                 return Redirect::route('posts.index');
             }
-            return View::make('posts.edit', compact('post'));
+            return View::make('posts.edit', compact('post', 'topics'));
         }
         else
         {
@@ -128,11 +135,13 @@ class PostsController extends \BaseController {
 	public function update($id)
 	{
         $input = Input::all();
+        $topics = $input['topics'];
         $validation = Validator::make($input, Post::$rules);
         if ($validation->passes())
         {
             $post = Post::find($id);
             $post->update($input);
+            $post->topics()->sync($topics);
             return Redirect::route('posts.show', $id);
         }
         return Redirect::route('posts.edit', $id)
@@ -163,6 +172,4 @@ class PostsController extends \BaseController {
                 ->with('message', 'Not allowed to delete other users posts.');
         }
 	}
-
-
 }

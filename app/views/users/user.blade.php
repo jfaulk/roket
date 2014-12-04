@@ -29,7 +29,7 @@
 			Topic Tags <br>
 			{{ " | " }}
 			@foreach($barf->topics as $topic)
-				{{ link_to('topic/' . $topic->id, $topic->tag) }}
+				{{ link_to('topic/' . $topic->id, $topic->name) }}
 				{{ " | " }}
 			@endforeach<br><br>
 
