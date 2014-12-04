@@ -20,6 +20,7 @@ class CreatePostTopicTable extends Migration {
 			$table->unsignedInteger('topic_id');
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
             $table->foreign('topic_id')->references('id')->on('topics')->onDelete('cascade');
+            $table->timestamps();
 		});
 	}
 

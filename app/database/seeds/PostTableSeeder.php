@@ -9,7 +9,6 @@ class PostTableSeeder extends Seeder {
 		DB::table('posts')->insert(array(
 			'user_id' => 1,
 			'title' => 'Hello',
-            'slug' => 'hello',
 			'content' => "A post!",
 			'created_at' => $now,
 			'updated_at' => $now,
@@ -18,7 +17,6 @@ class PostTableSeeder extends Seeder {
         DB::table('posts')->insert(array(
             'user_id' => 2,
             'title' => 'Hello',
-            'slug' => 'hello',
             'content' => "A post!",
             'created_at' => $now,
             'updated_at' => $now,
@@ -27,7 +25,6 @@ class PostTableSeeder extends Seeder {
         DB::table('posts')->insert(array(
             'user_id' => 3,
             'title' => 'Hello',
-            'slug' => 'hello',
             'content' => "A post!",
             'created_at' => $now,
             'updated_at' => $now,
@@ -36,7 +33,6 @@ class PostTableSeeder extends Seeder {
         DB::table('posts')->insert(array(
             'user_id' => 4,
             'title' => 'Hello',
-            'slug' => 'hello',
             'content' => "A post!",
             'created_at' => $now,
             'updated_at' => $now,

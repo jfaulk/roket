@@ -9,7 +9,9 @@ class TopicsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+        $topics = Topic::all();
+
+        return View::make('topics.index', compact('topics'));
 	}
 
 
@@ -43,7 +45,10 @@ class TopicsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+        $topic = Topic::find($id);
+
+        return View::make('topics.topic')
+            ->with('topic', $topic);
 	}
 
 

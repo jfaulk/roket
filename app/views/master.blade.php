@@ -21,6 +21,7 @@
 				{{ link_to('/', 'Home |') }}
 				{{ link_to('users', 'Users |') }}
 				{{ link_to('posts', 'Posts |') }}
+				{{ link_to('topics', 'Topics |') }}
 				{{ link_to('about', 'About Us |') }}
 				@if(Auth::check())
 				    {{ link_to('logout', 'Logout |') }}
