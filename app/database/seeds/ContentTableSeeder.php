@@ -5,9 +5,12 @@ class ContentTableSeeder extends Seeder {
 	public function run()
 	{
 		DB::table('content')->insert(array(
-			array('tag' => 'nudity'),
-			array('tag' => 'violence'),
-			array('tag' => 'religion'),
+			array('name' => 'nudity'),
+			array('name' => 'violence'),
+			array('name' => 'movies'),
+            array('name' => 'television'),
+            array('name' => 'games'),
+            array('name' => 'random'),
 		));
 	}
 }
