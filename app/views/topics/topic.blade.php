@@ -5,7 +5,7 @@
 @stop
 
 @section('content')
-<div class="container">
+
     <h1> {{{ Topic::find($topic->id)->topic }}} </h1><br>
 
     <table class="table table-striped table-bordered">
@@ -26,5 +26,4 @@
             @endforeach
         </tbody>
     </table>
-</div>
 @stop

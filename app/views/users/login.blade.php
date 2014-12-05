@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-<div class="container">
+
 	{{ Form::open(array('url' => 'login', 'class' => 'form')) }}
 		<h2 class="form-heading">Login</h2>
 
@@ -29,6 +29,5 @@
 
 		{{ Form::button('Login!', array('type' => 'submit', 'class' => 'btn btn-lg btn-primary btn-block')) }}
 	{{ Form::close() }}
-</div>
 
 @stop

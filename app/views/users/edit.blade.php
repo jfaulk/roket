@@ -16,7 +16,6 @@
 @stop
 
 @section('content')
-<div class="container">
    {{ Form::model($user, array('method' => 'PATCH', 'route' => array('users.update', $user->id), 'class' => 'form')) }}
 		<h2 class="form-heading">Edit User</h2>
 
@@ -63,7 +62,5 @@
         {{ implode('', $errors->all('<p class="bg-danger">:message</p>')) }}
     </ul>
 @endif
-
-</div>
 
 @stop

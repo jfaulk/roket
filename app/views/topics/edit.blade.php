@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-<div class="'container">
+
 <h1>Edit Topic</h1>
     {{ Form::model($topic, array('method' => 'PATCH', 'route' => array('topics.update', $topic->id), 'class' => 'form')) }}
 
@@ -27,7 +27,5 @@
         {{ implode('', $errors->all('<li class="error">:message</li>')) }}
     </ul>
 @endif
-
-</div>
 
 @stop

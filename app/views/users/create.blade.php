@@ -16,7 +16,6 @@
 @stop
 
 @section('content')
-<div class="container">
 
     {{ Form::open(array('route' => 'users.store', 'class' => 'form')) }}
 		<h2 class="form-heading">Signup!</h2>
@@ -63,7 +62,6 @@
     <ul>
         {{ implode('', $errors->all('<li class="error">:message</li>')) }}
     </ul>
-</div>
 @endif
 
 @stop
