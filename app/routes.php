@@ -30,29 +30,6 @@ Route::get('about', function()
     return View::make('about');
 });
 
-# Topic Link
-
-Route::get('topic/{topic}', function(Topic $topic)
-{
-	return View::make('viewtopic')
-		->with('topic', $topic);
-});
-
-# Content Link
-
-Route::get('content/{content}', function(Content $content)
-{
-	return View::make('viewcontent')
-		->with('content', $content);
-});
-
-# Create New Post
-Route::post('blog/{user}/create', function(User $user)
-    {
-        return View::make('newpost')
-            ->with('user', $user);
-    });
-
 # Login
 
 Route::get('login', array('before' => 'guest', 'uses' => 'UsersController@showLogin'));
