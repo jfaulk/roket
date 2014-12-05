@@ -9,4 +9,9 @@ class Content extends Eloquent {
 	{
 		return $this->belongsToMany('Post');
 	}
+
+    public function topics()
+    {
+        return $this->belongsToMany('Topic');
+    }
 }
