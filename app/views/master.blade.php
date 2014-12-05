@@ -3,6 +3,7 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Roket</title>
 		<link rel="stylesheet" href="{{url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css')}}">
 		<link rel="stylesheet" href="{{url('https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css')}}">
