@@ -43,3 +43,4 @@ Route::get('logout', array('before' => 'auth', 'uses' => 'UsersController@getLog
 Route::resource('users', 'UsersController');
 Route::resource('posts', 'PostsController');
 Route::resource('topics', 'TopicsController');
+Route::resource('contents', 'ContentsController');

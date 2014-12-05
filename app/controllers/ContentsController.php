@@ -1,6 +1,13 @@
 <?php
 
-class ContentController extends \BaseController {
+class ContentsController extends \BaseController {
+
+    public function __construct(Content $content)
+    {
+        parent::__construct();
+
+        $this->content = $content;
+    }
 
 	/**
 	 * Display a listing of the resource.
@@ -9,7 +16,9 @@ class ContentController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+        $contents = Content::paginate(5);
+
+        return View::make('contents.index', compact('contents'));
 	}
 
 

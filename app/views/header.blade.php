@@ -26,8 +26,8 @@
         <li class="{{ Request::is('topics*') ? 'active' : '' }}">{{ link_to('topics', 'Topics') }}</li>
                     {{ Request::is('topics*') ? '<span class="sr-only">(current)</span>' : '' }}
 
-        <li class="{{ Request::is('content*') ? 'active' : '' }}">{{ link_to('contents', 'Contents') }}</li>
-                    {{ Request::is('content**') ? '<span class="sr-only">(current)</span>' : '' }}
+        <li class="{{ Request::is('contents*') ? 'active' : '' }}">{{ link_to('contents', 'Contents') }}</li>
+                    {{ Request::is('contents**') ? '<span class="sr-only">(current)</span>' : '' }}
 
         <li class="{{ Request::is('about*') ? 'active' : '' }}">{{ link_to('about', 'About Us') }}</li>
                     {{ Request::is('about*') ? '<span class="sr-only">(current)</span>' : '' }}

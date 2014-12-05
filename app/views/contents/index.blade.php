@@ -10,7 +10,7 @@
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th>Topic</th>
+                <th>Content</th>
                 <th>Date Created</th>
                 <th>Posts</th>
             </tr>
@@ -19,16 +19,16 @@
         @foreach ($contents as $content)
             <tr>
                 <td><a href="{{ url('contents/' . $content->id) }}">{{ $content->name }}</a></td>
-                <td>{{ $topic->created_at->toFormattedDateString() }}</td>
+                <td>{{ $content->created_at->toFormattedDateString() }}</td>
                 <td>
                 @foreach (Content::find($content->id)->posts as $post)
                     <a href="{{ url('posts/' . $post->id) }}">{{ $post->title }} </a>
                 @endforeach
                 </td>
                 @if (Auth::check())
-                <td>{{ link_to_route('contents.edit', 'Edit', array($topic->id), array('class' => 'btn btn-info')) }}</td>
+                <td>{{ link_to_route('contents.edit', 'Edit', array($contents->id), array('class' => 'btn btn-info')) }}</td>
                 <td>
-                    {{ Form::open(array('method' => 'DELETE', 'route' => array('contents.destroy', $topic->id))) }}
+                    {{ Form::open(array('method' => 'DELETE', 'route' => array('contents.destroy', $contents->id))) }}
                     {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
                     {{ Form::close() }}
                 </td>
@@ -37,6 +37,10 @@
         @endforeach
         </tbody>
 </table>
+
+<nav>
+    {{ $contents->links() }}
+</nav>
 
 @else
 <p>There are no posts.</p>

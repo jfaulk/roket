@@ -14,4 +14,9 @@ class Content extends Eloquent {
     {
         return $this->belongsToMany('Topic');
     }
+
+    public function contents()
+    {
+        return $this->hasMany('Post');
+    }
 }
