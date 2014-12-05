@@ -40,6 +40,10 @@
         </tbody>
 </table>
 
+<nav>
+    {{ $posts->links() }}
+</nav>
+
 @else
 
 <p>There are no posts.</p>

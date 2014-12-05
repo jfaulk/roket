@@ -25,9 +25,4 @@ class Post extends Eloquent {
 	{
 		return $this->belongsToMany('Content');
 	}
-
-    public function getTopics()
-    {
-
-    }
 }

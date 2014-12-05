@@ -21,7 +21,7 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$posts = Post::all();
+		$posts = Post::paginate(5);
 
         return View::make('posts.index', compact('posts'));
 	}
