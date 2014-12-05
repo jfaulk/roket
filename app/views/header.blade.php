@@ -18,13 +18,19 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="{{ Request::is('users') ? 'active' : '' }}">{{ link_to('users', 'Users') }}</li>
-            {{ Request::is('users') ? '<span class="sr-only">(current)</span>' : '' }}
+                    {{ Request::is('users') ? '<span class="sr-only">(current)</span>' : '' }}
+
         <li class="{{ Request::is('posts*') ? 'active' : '' }}">{{ link_to('posts', 'Posts') }}</li>
-            {{ Request::is('posts*') ? '<span class="sr-only">(current)</span>' : '' }}
+                    {{ Request::is('posts*') ? '<span class="sr-only">(current)</span>' : '' }}
+
         <li class="{{ Request::is('topics*') ? 'active' : '' }}">{{ link_to('topics', 'Topics') }}</li>
-            {{ Request::is('topics*') ? '<span class="sr-only">(current)</span>' : '' }}
+                    {{ Request::is('topics*') ? '<span class="sr-only">(current)</span>' : '' }}
+
+        <li class="{{ Request::is('content*') ? 'active' : '' }}">{{ link_to('contents', 'Contents') }}</li>
+                    {{ Request::is('content**') ? '<span class="sr-only">(current)</span>' : '' }}
+
         <li class="{{ Request::is('about*') ? 'active' : '' }}">{{ link_to('about', 'About Us') }}</li>
-            {{ Request::is('about*') ? '<span class="sr-only">(current)</span>' : '' }}
+                    {{ Request::is('about*') ? '<span class="sr-only">(current)</span>' : '' }}
       </ul>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
