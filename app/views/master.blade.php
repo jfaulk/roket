@@ -16,22 +16,7 @@
 	
 	<body>
 		<div class="container">
-			<div class="page-header">
 				@yield('header')
-				
-				{{ link_to('/', 'Home |') }}
-				{{ link_to('users', 'Users |') }}
-				{{ link_to('posts', 'Posts |') }}
-				{{ link_to('topics', 'Topics |') }}
-				{{ link_to('about', 'About Us |') }}
-				@if(Auth::check())
-				    {{ link_to('logout', 'Logout |') }}
-				    {{ link_to('users/' . Auth::user()->id, 'Profile') }}
-				@else
-				    {{ link_to('login', 'Login |') }}
-				    {{ link_to('users/create', 'Signup!') }}
-				@endif
-			</div>
 			
 			@if(Session::has('message'))
 			
@@ -41,5 +26,5 @@
 			@endif
 			@yield('content')
 		</div>
-	<body>
+	</body>
 </html>

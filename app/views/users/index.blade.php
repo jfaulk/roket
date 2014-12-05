@@ -1,5 +1,7 @@
 @extends('master')
 
+@extends('header')
+
 @section('content')
 
 <h1>Users</h1>

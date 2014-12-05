@@ -1,5 +1,7 @@
 @extends('master')
 
+@extends('header')
+
 @section('header')
 
 @stop

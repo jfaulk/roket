@@ -1,10 +1,6 @@
 @extends('master')
 
-@section('header')
-
-<link rel="stylesheet" href="{{asset('css/forms.css')}}">
-
-@stop
+@extends('header')
 
 @section('content')
     {{ Form::open(array('route' => 'posts.store', 'class' => 'form')) }}

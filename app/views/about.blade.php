@@ -1,8 +1,6 @@
 @extends('master')
 
-@section('header')
-	<h2>About this site</h2>
-@stop
+@extends('header')
 
 @section('content')
 	<h3>What is Roket?</h3>

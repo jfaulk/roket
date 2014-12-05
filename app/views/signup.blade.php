@@ -1,18 +1,6 @@
 @extends('master')
 
-@section('header')
-
-<link rel="stylesheet" href="{{asset('css/forms.css')}}">
-
-<script type="text/javascript">
-    $(function() {
-        $( "#datepicker" ).datepicker({
-            changeMonth: true,
-            changeYear: true
-        });
-    });
-</script>
-@stop
+@extends('header')
 
 @section('content')
 
@@ -77,6 +65,15 @@
 
 			{{ Form::button('Signup!', array('type' => 'submit', 'class' => 'btn btn-lg btn-primary btn-block')) }}
 	{{ Form::close() }}
+
+	<script type="text/javascript">
+        $(function() {
+            $( "#datepicker" ).datepicker({
+                changeMonth: true,
+                changeYear: true
+            });
+        });
+    </script>
 
 @stop
 

@@ -1,19 +1,6 @@
 @extends('master')
 
-@section('header')
-
-<link rel="stylesheet" href="{{asset('css/forms.css')}}">
-
-<script type="text/javascript">
-    $(function() {
-        $( "#datepicker" ).datepicker({
-            changeMonth: true,
-            changeYear: true
-        });
-    });
-</script>
-
-@stop
+@extends('header')
 
 @section('content')
 
@@ -63,5 +50,12 @@
         {{ implode('', $errors->all('<li class="error">:message</li>')) }}
     </ul>
 @endif
-
+    <script type="text/javascript">
+        $(function() {
+            $( "#datepicker" ).datepicker({
+                changeMonth: true,
+                changeYear: true
+            });
+        });
+    </script>
 @stop

@@ -1,19 +1,6 @@
 @extends('master')
 
-@section('header')
-
-<link rel="stylesheet" href="{{asset('css/forms.css')}}">
-
-<script type="text/javascript">
-    $(function() {
-        $( "#datepicker" ).datepicker({
-            changeMonth: true,
-            changeYear: true
-        });
-    });
-</script>
-
-@stop
+@extends('header')
 
 @section('content')
    {{ Form::model($user, array('method' => 'PATCH', 'route' => array('users.update', $user->id), 'class' => 'form')) }}
@@ -62,5 +49,12 @@
         {{ implode('', $errors->all('<p class="bg-danger">:message</p>')) }}
     </ul>
 @endif
-
+    <script type="text/javascript">
+        $(function() {
+            $( "#datepicker" ).datepicker({
+                changeMonth: true,
+                changeYear: true
+            });
+        });
+    </script>
 @stop

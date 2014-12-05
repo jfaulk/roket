@@ -1,8 +1,6 @@
 @extends('master')
 
-@section('header')
-
-@stop
+@extends('header')
 
 @section('content')
     <div>

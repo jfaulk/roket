@@ -1,9 +1,6 @@
 @extends('master')
 
-@section('header')
-	<h1>Roket</h1>
-	<h6>Blogging to infinity... and beyond!</h6>
-@stop
+@extends('header')
 
 @section('content')
     @if(Auth::check()) {{-- user is logged in --}}
