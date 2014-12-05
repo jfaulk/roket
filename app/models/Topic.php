@@ -17,6 +17,11 @@ class Topic extends Eloquent {
 
     public function topics()
     {
-        return $this->hasMany('Topic');
+        return $this->hasMany('Post');
+    }
+
+    public function contents()
+    {
+        return $this->hasMany('Content');
     }
 }
