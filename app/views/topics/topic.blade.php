@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <h1> {{{ Topic::find($topic->id)->topic }}} </h1><br>
+    <h1> {{{ Topic::find($topic->id)->name }}} </h1><br>
 
     <table class="table table-striped table-bordered">
         <thead>
