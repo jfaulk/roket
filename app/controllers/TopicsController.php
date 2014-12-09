@@ -152,6 +152,4 @@ class TopicsController extends \BaseController {
                 ->with('message', 'You must be logged in.');
         }
 	}
-
-
 }

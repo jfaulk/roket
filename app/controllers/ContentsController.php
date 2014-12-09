@@ -29,7 +29,16 @@ class ContentsController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+        if (Auth::check())
+        {
+            return View::make('contents.create');
+        }
+
+        else
+        {
+            return Redirect::route('contents.index')
+                ->with('message', 'You must be logged in to create a content tag.');
+        }
 	}
 
 
@@ -40,7 +49,23 @@ class ContentsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+        $input = Input::all();
+        $validation = Validator::make($input, Content::$rules);
+        if ($validation->passes())
+        {
+            $this->content->name = Input::get('name');
+
+            if($this->content->save())
+            {
+                return Redirect::route('contents.index');
+            }
+
+            return Redirect::route('contents.index')->with('error', 'There was a problem creating a content tag.');
+        }
+        return Redirect::route('contents.create')
+            ->withInput()
+            ->withErrors($validation)
+            ->with('message', 'There were validation errors.');
 	}
 
 
@@ -52,7 +77,10 @@ class ContentsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+        $content = Content::find($id);
+
+        return View::make('contents.content')
+            ->with('content', $content);
 	}
 
 
@@ -64,7 +92,20 @@ class ContentsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+        if(Auth::check())
+        {
+            $content = Content::find($id);
+            if (is_null($content))
+            {
+                return Redirect::route('contents.index');
+            }
+            return View::make('contents.edit', compact('contents'));
+        }
+        else
+        {
+            return Redirect::route('contents.index')
+                ->with('message', 'Must be logged in.');
+        }
 	}
 
 
@@ -76,7 +117,18 @@ class ContentsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+        $input = Input::all();
+        $validation = Validator::make($input, Content::$rules);
+        if ($validation->passes())
+        {
+            $content = Content::find($id);
+            $content->update($input);
+            return Redirect::route('contents.index');
+        }
+        return Redirect::route('contents.edit', $id)
+            ->withInput()
+            ->withErrors($validation)
+            ->with('message', 'There were validation errors.');
 	}
 
 
@@ -88,8 +140,15 @@ class ContentsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+        if (Auth::check())
+        {
+            Content::find($id)->delete();
+            return Redirect::route('contents.index');
+        }
+        else
+        {
+            return Redirect::route('contents.index', $id)
+                ->with('message', 'You must be logged in.');
+        }
 	}
-
-
 }
