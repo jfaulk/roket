@@ -21,7 +21,7 @@ class Post extends Eloquent {
         return $this->belongsToMany('Topic');
     }
 	
-	public function content()
+	public function contents()
 	{
 		return $this->belongsToMany('Content');
 	}

@@ -21,6 +21,10 @@
             </p>
 
             <p>
+                {{ Form::select('contents[]', $contents, null, array('multiple' => 'multiple', 'class' => 'form-control')) }}
+            </p>
+
+            <p>
                 {{ Form::submit('Submit', array('class' => 'btn btn-lg btn-primary btn-block')) }}
             </p>
 

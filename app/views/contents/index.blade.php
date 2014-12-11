@@ -5,7 +5,7 @@
 @section('content')
 
 <h1>All Content</h1>
-    <p>{{ link_to_route('contents.create', 'Add new content') }}</p>
+    <p>{{ link_to_route('contents.create', 'Add new content tag') }}</p>
     @if ($contents->count())
     <table class="table table-striped table-bordered">
         <thead>
@@ -37,10 +37,6 @@
         @endforeach
         </tbody>
 </table>
-
-<nav>
-    {{ $contents->links() }}
-</nav>
 
 @else
 <p>There are no posts.</p>

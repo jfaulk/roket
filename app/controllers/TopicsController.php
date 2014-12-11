@@ -38,7 +38,7 @@ class TopicsController extends \BaseController {
         else
         {
             return Redirect::route('topics.index')
-                ->with('message', 'You must be logged in to create a topic.');
+                ->with('message', 'You must be logged in to create a topic tag.');
         }
 	}
 
@@ -105,7 +105,7 @@ class TopicsController extends \BaseController {
         else
         {
             return Redirect::route('topics.index')
-                ->with('message', 'Must be logged in.');
+                ->with('message', 'You must be logged in to edit a topic tag');
         }
 	}
 
@@ -149,7 +149,7 @@ class TopicsController extends \BaseController {
         else
         {
             return Redirect::route('topics.index', $id)
-                ->with('message', 'You must be logged in.');
+                ->with('message', 'You must be logged in to delete a content tag.');
         }
 	}
 }

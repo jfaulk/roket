@@ -12,6 +12,7 @@
             <tr>
                 <th>Title</th>
                 <th>Topics</th>
+                <th>Content</th>
                 <th>Date Created</th>
                 <th>User</th>
             </tr>
@@ -23,6 +24,11 @@
                 <td>
                     @foreach (Post::find($post->id)->topics as $topic)
                         <a href="{{ url('topics/' . $topic->id) }}"> {{ ' [' . $topic->name . '] ' }} </a>
+                    @endforeach
+                </td>
+                <td>
+                    @foreach (Post::find($post->id)->contents as $content)
+                        <a href="{{ url('contents/' . $content->id) }}"> {{ ' [' . $content->name . '] ' }} </a>
                     @endforeach
                 </td>
                 <td>{{{ $post->created_at->toFormattedDateString() }}}</td>

@@ -16,7 +16,7 @@ class Content extends Eloquent {
 
     public function topics()
     {
-        return $this->belongsToMany('Topic');
+        return $this->hasMany('Topic');
     }
 
     public function contents()

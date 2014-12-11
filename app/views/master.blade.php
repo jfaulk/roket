@@ -24,6 +24,7 @@
 				{{Session::get('message')}}
 			</div>
 			@endif
+
 			@yield('content')
 		</div>
 	</body>

@@ -39,6 +39,6 @@
 
         </div>
     @else
-        {{ HTML::image('img/rockt.jpg', 'a picture', array('class' => 'thumbnail')) }}
+        {{ HTML::image('img/roket.jpg', 'Roket', array('class' => 'img-responsive, center-block')) }}
     @endif
 @stop

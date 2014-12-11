@@ -16,7 +16,7 @@ class ContentsController extends \BaseController {
 	 */
 	public function index()
 	{
-        $contents = Content::paginate(5);
+        $contents = Content::all();
 
         return View::make('contents.index', compact('contents'));
 	}
@@ -104,7 +104,7 @@ class ContentsController extends \BaseController {
         else
         {
             return Redirect::route('contents.index')
-                ->with('message', 'Must be logged in.');
+                ->with('message', 'You must be logged in to edit a content tag');
         }
 	}
 
@@ -148,7 +148,7 @@ class ContentsController extends \BaseController {
         else
         {
             return Redirect::route('contents.index', $id)
-                ->with('message', 'You must be logged in.');
+                ->with('message', 'You must be logged in to delete a content tag.');
         }
 	}
 }

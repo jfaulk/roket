@@ -22,6 +22,10 @@
             </p>
 
             <p>
+                {{ Form::select('contents[]', $contents, null, array('multiple' => 'multiple', 'class' => 'form-control')) }}
+            </p>
+
+            <p>
                 {{ Form::submit('Update', array('class' => 'btn btn-lg btn-primary btn-block')) }}
                 {{ link_to_route('posts.show', 'Cancel', $post->id, array('class' => 'btn btn-lg btn-default btn-block')) }}
             </p>

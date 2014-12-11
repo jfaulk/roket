@@ -5,7 +5,7 @@
 @section('content')
 
 <h1>All Topics</h1>
-    <p>{{ link_to_route('topics.create', 'Add new topic') }}</p>
+    <p>{{ link_to_route('topics.create', 'Add new topic tag') }}</p>
     @if ($topics->count())
     <table class="table table-striped table-bordered">
         <thead>
